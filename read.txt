@@ -2,4 +2,8 @@
 xxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+<<<<<<< HEAD
 合并前
+=======
+合并前减肥方法很贵
+>>>>>>> dev
