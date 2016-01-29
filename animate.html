@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		dl{
+			width:100%;
+			padding:30px 10px;
+    		box-sizing: border-box;
+		}
+		dd{
+			display:block;
+			float:left;
+			width:25%;
+			padding:10px 10px;
+			box-sizing: border-box;
+			border:1px solid #ccc;
+			border-radius:5px;
+			position:relative;
+		}
+		dd span{
+			width: 80%;
+		    height: 30px;
+		    line-height: 30px;
+		    color: #000;
+		    overflow: hidden;
+		    text-align: center;
+		    display: block;
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    margin-left: -40%;
+		    margin-top: -15px;
+		    z-index: 1;
+		}
+		dd p{
+			width:80%;
+			height:30px;
+			line-height:30px;
+			margin: 0 auto;
+			color:white;
+			overflow:hidden;
+			text-align:center;
+			border-radius:5px;
+			background:red;
+			position: relative;
+			z-index:2;
+		}
+	</style>
+</head>
+<body>
+	<dl id="content"></dl>
+</body>
+<script type="text/javascript" src="http://aui.github.io/artTemplate/dist/template.js"></script>
+<script id="test" type="text/html">
+	{{each data}}
+		<dd><span>{{$value}}动画</span><p data-class="animated {{$value}}" class="animated{{if loop}} infinite{{/if}} {{$value}}">{{$value}}动画</p></dd>
+	{{/each}}
+</script>
+<script>
+
+var data = ["bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp", "bounceOut", "bounceOutDown", "bounceOutLeft", "bounceOutRight", "bounceOutUp", "fadeIn", "fadeInDown", "fadeInDownBig", "fadeInLeft", "fadeInLeftBig", "fadeInRight", "fadeInRightBig", "fadeInUp", "fadeInUpBig", "fadeOut", "fadeOutDown", "fadeOutDownBig", "fadeOutLeft", "fadeOutLeftBig", "fadeOutRight", "fadeOutRightBig", "fadeOutUp", "fadeOutUpBig", "flip", "flipInX", "flipInY", "flipOutX", "flipOutY", "lightSpeedIn", "lightSpeedOut", "rotateIn", "rotateInDownLeft", "rotateInDownRight", "rotateInUpLeft", "rotateInUpRight", "rotateOut", "rotateOutDownLeft", "rotateOutDownRight", "rotateOutUpLeft", "rotateOutUpRight", "slideInDown", "slideInLeft", "slideInRight", "slideOutLeft", "slideOutRight", "slideOutUp", "hinge", "rollIn", "rollOut"],
+	html = template('test', {
+		'data' : data,
+		'loop' : false
+	});
+	document.getElementById('content').innerHTML = html;
+	var _dd = document.getElementsByTagName('dd');
+		for (var i = 0; i < _dd.length; i++) {
+			_dd[i].onclick = (function(i){
+				return function(){
+					var _this = this.getElementsByTagName('p')[0],
+						_class = _this.getAttribute('data-class');
+					_this.className='';
+					setTimeout(function(){
+						_this.className=_class;
+					},300)
+				}
+			})(i);
+		}
+</script>
+</html>
