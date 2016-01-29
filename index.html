@@ -5,6 +5,58 @@
     <title>Testa by Genie77998</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		dl{
+			width:100%;
+			padding:30px 10px;
+    		box-sizing: border-box;
+		}
+		dd{
+			display:block;
+			float:left;
+			width:25%;
+			padding:10px 10px;
+			box-sizing: border-box;
+			position:relative;
+		}
+		dd p{
+			width:80%;
+			height:30px;
+			line-height:30px;
+			margin: 0 auto;
+			color:#404040;
+			overflow:hidden;
+			text-align:center;
+			border-radius:5px;
+			border:1px solid #ccc;
+			position: relative;
+			z-index:2;
+		}
+		dd.active p{
+			border: 1px solid #ff7e23;
+		}
+		.content{
+			position: fixed;
+			width: 100%;
+			height:100%;
+			overflow:hidden;
+			z-index:500;
+			display:none;
+			background:rgba(0,0,0,0.5);
+			top:0;
+			left:0;
+		}
+		#animatEle{
+			width:30%;
+			height:50%;
+			background:#E4E2D6;
+			margin: 20% auto;
+		}
+	</style>
   </head>
   <body>
     
